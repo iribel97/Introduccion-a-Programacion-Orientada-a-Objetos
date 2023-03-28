@@ -136,6 +136,9 @@ public class AhorcadoServ {
     public void juego(Ahorcado game){
         //Primero debe de conocer la cantidad de palabras
         int cantP = 0;
+        //contador de intentos repetidos
+        int cont55 = 0;
+        
         for (int i = 0; i < game.getLongitudP(); i++) {
             if (game.getPalabra()[i] != ' ') {
                 cantP++;
@@ -156,7 +159,15 @@ public class AhorcadoServ {
             System.out.print("   ingrese una lera: ");
             letter = scaner.next().charAt(0);
             nuevaP = encontradas (letter, game);
+            cont55 = 0;
             for (int i = 0; i < nuevaP.length; i++) {
+                if (letter == nuevaP2[i]) {
+                    game.setCantPalabrasE(game.getCantPalabrasE()-1);
+                    if (cont55 == 0) {
+                        game.setCantJugadasMax(game.getCantJugadasMax()-1);
+                    }
+                    cont55 ++;
+                }
                 if (nuevaP2[i] == game.getPalabra()[i]) {
                     nuevaP2[i] = game.getPalabra()[i];
                 }else{
