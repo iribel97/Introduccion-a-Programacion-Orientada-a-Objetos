@@ -16,7 +16,7 @@ public class MesServ {
     public void adivinarMes(Mes month){
         Scanner scaner = new Scanner(System.in);
         //Poner un mes random
-        int posicion = (int)(Math.random()*13);
+        int posicion = (int)(Math.random()*12);
         month.setMes(month.getMeses()[posicion]);
         //variable que guarde lo ingresado por el usuario
         String uMes;
