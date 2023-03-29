@@ -4,6 +4,9 @@
  */
 package extraejer1;
 
+import Entidad.Cancion;
+import java.util.Scanner;
+
 /**
  *
  * @author irina
@@ -18,6 +21,15 @@ public class ExtraEjer1 {
     */
     public static void main(String[] args) {
         // TODO code application logic here
+        Scanner leer = new Scanner(System.in);
+        Cancion song = new Cancion();
+        
+        System.out.println("INGRESE LA SIGUIENTE INFORMACION ");
+        
+        System.out.print("  Nombre de la cancion: ");
+        song.setTitulo(leer.nextLine());
+        System.out.print("  Autor de la cancion: ");
+        song.setAutor(leer.nextLine());
     }
     
 }
