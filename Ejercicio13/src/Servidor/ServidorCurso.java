@@ -91,4 +91,22 @@ public class ServidorCurso {
         System.out.println(" Las ganancias semanales son: " + ganancia);
         
     }
+    
+    /*Metodo Mostrar Curso*/
+    
+    public void mostrarCurso(Curso curso, int numCurso){
+        System.out.println("--------------------------------------------------");
+        System.out.println("                  CURSO #"+ numCurso);
+        System.out.println("--------------------------------------------------");
+        System.out.println("   Nombre: " + curso.getNombreCurso());
+        System.out.println("   Cantidad de dias por semana: " + curso.getCantDiasPS());
+        System.out.println("   Cantidad de horas por dia: " + curso.getCantHorasPD());
+        System.out.println("   Jornada: " + curso.getTurno().replace(curso.getTurno().charAt(0),
+                curso.getTurno().toUpperCase().charAt(0)));
+        System.out.println("   Alumnos: ");
+        for (String alumno : curso.getNombreAlumnos()) {
+            System.out.println("      - " + alumno);
+        }
+        calcularGananciaSemanal(curso);
+    }
 }
