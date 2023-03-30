@@ -1,7 +1,8 @@
 package Servidor;
 
 import Entidad.Persona;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
 /**
@@ -30,9 +31,9 @@ fecha de nacimiento debe guardarse en un Date y los guarda en el objeto.
         System.out.print("Año: ");
         int year = leer.nextInt();
         
-        Date fecha = new Date(year, mes , dia);
+        LocalDate fechaN = LocalDate.of(year, mes, dia);
         
-        person.setFechaNacimiento(fecha);
+        person.setFechaNacimiento(fechaN);
         
         return person;
     }
@@ -42,11 +43,10 @@ fecha de nacimiento debe guardarse en un Date y los guarda en el objeto.
 en cuenta que para conocer la edad de la persona también se debe conocer la fecha
 actual.
     */
-    public int calcularEdad(Persona persona1){
-        Date fechaActual = new Date();
-        int edadActual;
-        
-        edadActual = fechaActual.getYear() - (persona1.getFechaNacimiento().getYear()-1900);
+    public long calcularEdad(Persona persona1){
+        LocalDate fechaActual = LocalDate.now();
+
+        long edadActual = ChronoUnit.YEARS.between(persona1.getFechaNacimiento(), fechaActual);
         
         return edadActual;
     }
@@ -57,7 +57,7 @@ edad y retorna true en caso de que el receptor tenga menor edad que la persona q
 se recibe como parámetro, o false en caso contrario.
     */
     public boolean menorQue(int edad, Persona persona2){
-        int edadUsuario = calcularEdad(persona2);
+        long edadUsuario = calcularEdad(persona2);
         boolean bandera;
         
         bandera = edad > edadUsuario;
@@ -73,7 +73,6 @@ anterior.
     public void mostrarPersona(Persona persona3){
         System.out.println("--------------------------------------------------");
         System.out.println("Nombre: " + persona3.getNombre());
-        System.out.println("Fecha de Nacimiento: " + persona3.getFechaNacimiento().getDate() + " - "
-                + persona3.getFechaNacimiento().getMonth() + " - " + persona3.getFechaNacimiento().getYear());
+        System.out.println("Fecha de Nacimiento: " + persona3.getFechaNacimiento());
     }
 }

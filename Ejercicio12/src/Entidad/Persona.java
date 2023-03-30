@@ -4,7 +4,7 @@
  */
 package Entidad;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 /**
  *
@@ -17,13 +17,14 @@ public class Persona {
     métodos:
     */
     private String Nombre;
-    private Date fechaNacimiento;
+    private LocalDate fechaNacimiento;
 
     public Persona() {
     }
 
-    public Persona(String Nombre) {
+    public Persona(String Nombre, LocalDate fechaNacimiento) {
         this.Nombre = Nombre;
+        this.fechaNacimiento = fechaNacimiento;
     }
 
     public String getNombre() {
@@ -34,13 +35,12 @@ public class Persona {
         this.Nombre = Nombre;
     }
 
-    public Date getFechaNacimiento() {
+    public LocalDate getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(Date fechaNacimiento) {
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
-    
-    
+
 }
