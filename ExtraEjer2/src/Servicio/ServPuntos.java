@@ -38,13 +38,13 @@ public class ServPuntos {
     public void calcularDistancia(Puntos punt){
         double restaX, restaY, distancia;
         
-        DecimalFormat df = new DecimalFormat("#.##");
+        DecimalFormat formato = new DecimalFormat("#.###");
         //d = raiz([X2 - X1]^2 + [Y2 - Y1]^2)
         restaX = Math.pow((punt.getX2() - punt.getX1()), 2) ;
         restaY = Math.pow((punt.getY2() - punt.getY1()), 2);
         
         distancia = Math.sqrt((restaX+restaY));
         System.out.println("--------------------------------------------------");
-        System.out.println("     D(P1,P2) = " + df.format(distancia));
+        System.out.println("     D(P1,P2) = " + formato.format(distancia));
     }
 }

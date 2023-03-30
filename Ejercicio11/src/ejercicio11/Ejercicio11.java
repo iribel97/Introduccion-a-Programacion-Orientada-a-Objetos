@@ -4,6 +4,9 @@
  */
 package ejercicio11;
 
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -26,12 +29,9 @@ public class Ejercicio11 {
     public static void main(String[] args) {
         // TODO code application logic here
         Scanner leer = new Scanner(System.in);
-        Date fechaActual = new Date(2023,3,21);
-        
+
         int dia, mes, year;
-        //Entero que muestre la diferencie de los años
-        int diferencia;
-        
+
         System.out.println("INGRESE UNA FECHA");
         System.out.print("   * dia : ");
         dia = leer.nextInt();
@@ -40,14 +40,18 @@ public class Ejercicio11 {
         System.out.print("   * año : ");
         year = leer.nextInt();
         
-        Date fecha = new Date(year,mes,dia);
+        LocalDate fecha =  LocalDate.of(year, mes, dia);
         
-        diferencia = fecha.getYear() - fechaActual.getYear();
+        //Fecha Acuat
+        LocalDate fechaA = LocalDate.now();
+        
+        long diferencia = ChronoUnit.YEARS.between(fecha, fechaA);
         System.out.println("--------------------------------------------------");
         System.out.println("La diferencia es: " + diferencia);
         System.out.println("--------------------------------------------------");
-        System.out.println("Fecha actual");
-        System.out.println(fechaActual.getDay() + " - " + fechaActual.getMonth() + " - " + fechaActual.getYear());
+        System.out.println("Fecha actual: " + fechaA);
+        System.out.println("Fecha ingresada: " + fecha);
+
         
         
     }
