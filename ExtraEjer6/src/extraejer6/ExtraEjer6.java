@@ -43,6 +43,11 @@ public class ExtraEjer6 {
         Ahorcado juegoA = server.crearJuego();
         
         server.longitud(juegoA);
+         //Esto es solo adorno no hacer caso
+        for (int i = 0; i < 30; i++) {
+            System.out.println("");
+        }
+            //Desde aca
         server.juego(juegoA);
     }
     

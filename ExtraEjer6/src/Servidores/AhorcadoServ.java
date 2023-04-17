@@ -138,7 +138,7 @@ public class AhorcadoServ {
         int cantP = 0;
         //contador de intentos repetidos
         int cont55 = 0;
-        
+        longitud(game);
         for (int i = 0; i < game.getLongitudP(); i++) {
             if (game.getPalabra()[i] != ' ') {
                 cantP++;
@@ -156,7 +156,7 @@ public class AhorcadoServ {
         
         do {
             System.out.println("**************************************************");
-            System.out.print("   ingrese una lera: ");
+            System.out.print("   ingrese una letra: ");
             letter = scaner.next().charAt(0);
             nuevaP = encontradas (letter, game);
             cont55 = 0;
